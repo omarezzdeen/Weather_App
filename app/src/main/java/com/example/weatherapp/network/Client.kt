@@ -24,6 +24,7 @@ class Client(val dataManager: DataManager) {
                     dataManager.saveWeatherData(result)
                     Log.i(Constants.TAG, "data=>: $result")
                 }
+                setupRecycler()
             }
 
         })
