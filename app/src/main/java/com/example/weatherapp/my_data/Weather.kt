@@ -1,6 +1,6 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.my_data
 
-data class WeatherElement(
+data class Weather(
     val description: String,
     val icon: String,
     val id: Int,
