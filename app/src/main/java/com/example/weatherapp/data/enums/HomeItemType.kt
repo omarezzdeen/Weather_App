@@ -1,4 +1,4 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.data.enums
 
 enum class HomeItemType {
     TYPE_HEADER,

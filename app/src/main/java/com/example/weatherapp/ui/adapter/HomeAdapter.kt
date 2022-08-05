@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.DataManager
 import com.example.weatherapp.R
 import com.example.weatherapp.data.*
+import com.example.weatherapp.data.enums.HomeItemType
 import com.example.weatherapp.databinding.*
 import com.example.weatherapp.util.Constants
 import java.lang.Exception
@@ -89,7 +90,7 @@ class HomeAdapter(private val items: List<HomeItem<Any>>): RecyclerView.Adapter<
     private fun bindDetails(holder: WeatherDetailsViewHolder, position: Int) {
         val currentItem = items[position].item as Weather
         val data = currentItem.current
-        val dataManger = DataManager
+        val dataManger = DataManager()
         holder.binding.apply {
             textSunrise.text = dataManger.transformationUnixTimestampForDate(data.sunrise, Constants.TYPE_DATE_DETAILS)
             textSunset.text = dataManger.transformationUnixTimestampForDate(data.sunset, Constants.TYPE_DATE_DETAILS)

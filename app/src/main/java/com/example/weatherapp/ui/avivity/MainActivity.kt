@@ -5,15 +5,14 @@ import android.os.Bundle
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.DataManager
 import com.example.weatherapp.data.HomeItem
-import com.example.weatherapp.data.HomeItemType
-import com.example.weatherapp.data.Weather
+import com.example.weatherapp.data.enums.HomeItemType
 import com.example.weatherapp.network.Client
 import com.example.weatherapp.ui.adapter.HomeAdapter
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    private val dataManager = DataManager
+    private val dataManager = DataManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
                 val adapter = HomeAdapter(callBack())
                 binding.recyclerViewHome.adapter = adapter
-//                callBack(dataManager.dataList!!)
             }
         }
     }
@@ -44,30 +42,6 @@ class MainActivity : AppCompatActivity() {
         list.add(HomeItem(dataManager.dataList!!, HomeItemType.TYPE_DETAILS))
         return list
     }
-
-//    private fun callBack(data: Weather) {
-//        val visibility = data.current.visibility / 1000
-//        val pressure = data.current.pressure / 100.0
-//        binding.apply {
-//            textMain.text = data.current.weather[0].main
-//            textDescription.text = data.current.weather[0].description
-//            textTemp.text = data.current.temp.toInt().toString()
-//            textHumidity.text = data.current.humidity.toString()
-//            textPressure.text = data.current.pressure.toString()
-////            textTempMin.text = data.current.temp_min.toInt().toString()
-////            textTempMax.text = data.current.temp_max.toInt().toString()
-//            textFeelsLike.text = data.current.feels_like.toString()
-//            textWind.text = data.current.wind_speed.toString()
-//            textSunrise.text = dataManager.transformationUnixTimestampForDate(data.current.sunrise, "h:mm a")
-//            textSunset.text = dataManager.transformationUnixTimestampForDate(data.current.sunset,"h:mm a")
-//            textVisibility.text = visibility.toString()
-//            textPressure.text = pressure.toString()
-//
-//            recyclerView.adapter = WeatherAdapter(dataManager.dataListHourly)
-//
-//        }
-
-//    }
 
 }
 

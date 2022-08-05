@@ -4,7 +4,7 @@ import android.util.Log
 import com.example.weatherapp.data.*
 import com.example.weatherapp.util.Constants
 
-object DataManager {
+class DataManager {
     private var _dataList : Weather? = null
     private var _dataListDaily = mutableListOf<Daily>()
     private var _dataListHourly = mutableListOf<Hourly>()

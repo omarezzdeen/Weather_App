@@ -12,7 +12,7 @@ class Client(val dataManager: DataManager) {
     val client = OkHttpClient()
 
     fun makeRequestWithOkHTTP(setupRecycler: () -> Unit) {
-        val request = Request.Builder().url(Constants.baseUrlTest).build()
+        val request = Request.Builder().url(Constants.baseUrl).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.i(Constants.TAG, "fail: ${e.message}")
