@@ -3,7 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/content_b2_bdeliveries.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/fragment_weather.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/header_card.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_daily_list.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_details.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_home.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_hourly_list.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_weather.xml" value="0.29743589743589743" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_weather_daily.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_weather_hourly.xml" value="0.29743589743589743" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/item_weather_hourly_card.xml" value="0.2965811965811966" />
+        <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/layout/title_item.xml" value="0.2965811965811966" />
         <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3365" />
         <entry key="..\:/The Chance/Android/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3365" />
       </map>

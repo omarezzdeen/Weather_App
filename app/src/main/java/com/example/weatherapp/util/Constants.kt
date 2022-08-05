@@ -6,4 +6,9 @@ object Constants {
     const val baseUrlTest = "https://api.openweathermap.org/data/2.5/onecall?&units=metric&exclude=minutely&appid=8c9a22ad31737b2f20be08e6f46f7998&lat=33.3152&lon=43.6793"
 
     const val TAG = "OE_PROGRAMMER"
+    const val TAG_DATA_MANGER = "DataManager"
+
+    const val TYPE_DATE_HOURLY = "h aa"
+    const val TYPE_DATE_DAILY = "EEEE"
+    const val TYPE_DATE_DETAILS = "h:mm aa"
 }
