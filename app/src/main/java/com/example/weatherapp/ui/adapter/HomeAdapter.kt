@@ -4,15 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weatherapp.DataManager
 import com.example.weatherapp.R
 import com.example.weatherapp.data.*
 import com.example.weatherapp.data.enums.HomeItemType
+import com.example.weatherapp.data.model.Weathers
 import com.example.weatherapp.databinding.*
 import com.example.weatherapp.util.Constants
+import com.example.weatherapp.util.formatDate
 import java.lang.Exception
 
 class HomeAdapter(private val items: List<HomeItem<Any>>): RecyclerView.Adapter<HomeAdapter.BaseHomeViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHomeViewHolder {
         return when (viewType) {
             VIEW_TYPE_CARD -> {
@@ -57,27 +59,32 @@ class HomeAdapter(private val items: List<HomeItem<Any>>): RecyclerView.Adapter<
     }
 
     private fun bindHeader(holder: HeaderViewHolder, position: Int) {
-        val currentItem = items[position].item as Weather
-        val data = currentItem.current
+        val currentItem = items[position].item as Weathers.Current
         holder.binding.apply {
-            textMain.text = data.weather[0].main
-            textTemp.text = data.temp.toInt().toString()
-            textDescription.text = data.weather[0].description
-            textTempMax.text = currentItem.daily[0].temp.max.toInt().toString()
-            textTempMin.text = currentItem.daily[0].temp.min.toInt().toString()
+            currentItem.let {
+                textMain.text = currentItem.weatherStatus?.get(0)?.main
+                textTemp.text = currentItem.temp?.toInt().toString()
+                textDescription.text = currentItem.weatherStatus?.get(0)?.description
+                textTempMax.text = currentItem.temp?.toInt().toString()
+                textTempMin.text = "${currentItem.temp?.toInt()?.minus(3)}"
+            }
+//            dailyItem.let{
+//                textTempMax.text = dailyItem[0].temp.max.toInt().toString()
+//                textTempMin.text = dailyItem[0].temp.min.toInt().toString()
+//            }
 
         }
     }
 
     private fun bindHourly(holder: WeatherHourlyViewHolder, position: Int) {
-        val currentItem = items[position].item as List<Hourly>
+        val currentItem = items[position].item as List<Weathers.Hourly>
         val adapter = WeatherHourlyAdapter(currentItem)
         holder.binding.recyclerViewHourly.adapter = adapter
 
     }
 
     private fun bindDaily(holder: WeatherDailyViewHolder, position: Int) {
-        val currentItem = items[position].item as List<Daily>
+        val currentItem = items[position].item as List<Weathers.Daily>
         val adapter = WeatherDailyAdapter(currentItem)
         holder.binding.recyclerViewDaily.adapter = adapter
     }
@@ -88,17 +95,17 @@ class HomeAdapter(private val items: List<HomeItem<Any>>): RecyclerView.Adapter<
         }
     }
     private fun bindDetails(holder: WeatherDetailsViewHolder, position: Int) {
-        val currentItem = items[position].item as Weather
-        val data = currentItem.current
-        val dataManger = DataManager()
+        val currentItem = items[position].item as Weathers.Current
         holder.binding.apply {
-            textSunrise.text = dataManger.transformationUnixTimestampForDate(data.sunrise, Constants.TYPE_DATE_DETAILS)
-            textSunset.text = dataManger.transformationUnixTimestampForDate(data.sunset, Constants.TYPE_DATE_DETAILS)
-            textHumidity.text = data.humidity.toString()
-            textWind.text = data.wind_speed.toString()
-            textFeelsLike.text = data.feels_like.toString()
-            textPressure.text = data.pressure.toString()
-            textVisibility.text = data.visibility.toString()
+            currentItem.let {
+                textSunrise.text = currentItem.sunrise?.formatDate(Constants.TYPE_DATE_DETAILS)
+                textSunset.text = currentItem.sunset?.formatDate(Constants.TYPE_DATE_DETAILS)
+                textHumidity.text = currentItem.humidity.toString()
+                textWind.text = currentItem.windSpeed.toString()
+                textFeelsLike.text = currentItem.feelsLike.toString()
+                textPressure.text = currentItem.pressure.toString()
+                textVisibility.text = currentItem.visibility.toString()
+            }
         }
     }
     override fun getItemCount(): Int = items.size
